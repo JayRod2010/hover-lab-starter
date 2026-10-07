@@ -7,6 +7,7 @@
   --contrast-color: #E8B873;
   --triadic-color: #A62A61;
   --extra-color: #F5F2EA;
+  --focus-ring-color: #065535;
 
   --radius: 1rem;
   --space-small: 0.5rem;
@@ -57,7 +58,7 @@ body {
   gap: var(--space);
 }
 
-.state-button {
+.state-button{
   padding: var(--space-small) var(--space);
   border: none;
   border-radius: 999px;
@@ -67,10 +68,25 @@ body {
   background: var(--contrast-color);
   cursor: pointer;
 }
+.state-button:hover, .state-button:focus{
+  color: var(--extra-color);
+  background-color: var(--primary-color);
+}
+.state-button:focus-visible{
+  outline: 3px solid #d708f5;
+  outline-offset: 4px;
+}
+.state-button:active{
+  transform: scale(0.92);
+}
 
 .state-link {
   font-weight: bold;
   color: var(--secondary-color);
+}
+.state-button,
+.state-link{
+  transition: color 1s ease, background-color 1s ease, transform 0.15s ease;
 }
 
 /* YOUR CODE: Lab 1 states (:hover, :focus-visible, :active) */
@@ -95,6 +111,24 @@ body {
   color: var(--extra-color);
   background: var(--secondary-color);
   transition: width 2s;
+}
+.racer-linear{
+  transition-timing-function: linear;
+}
+.racer-ease{
+  transition-timing-function: ease;
+}
+.racer-ease-in{
+  transition-timing-function: ease-in;
+}
+.racer-ease-out{
+  transition-timing-function: ease-out;
+}
+.racer-ease-in-out{
+  transition-timing-function: ease-in-out;
+}
+.racer-mine{
+  transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 
 /* Hovering the track makes every racer run to the finish line */
@@ -125,6 +159,18 @@ body {
   color: var(--extra-color);
   background: var(--triadic-color);
 }
+.tile{
+  transition: transform 4s ease;}
+
+.tile-lift:hover,.title-lift:focus-visible{
+  transform: translateY(-10%);}
+ .tile-grow:hover,.tile-grow:focus-visible{
+  transform: scale(1.1);} 
+ .tile-spin:hover, .tile-spin:focus-visible{
+  transform: rotate(360deg);}
+  .tile-tilt:hover,  .tile-tilt:focus-visible {
+    transform: rotate(15deg);
+  }
 
 /* YOUR CODE: Lab 3 transforms (lift, grow, spin, tilt) */
 
@@ -147,6 +193,55 @@ body {
   color: var(--primary-color);
   background: var(--extra-color);
   border: 2px solid #DDDDDD;
+}
+
+.effect-card {
+  transition: transform 0.4s ease;
+  border-color: transparent;
+  border-width: 20px;
+}
+/* effect 1 */
+.effect-1:hover,
+ .effect-1:focus-visible {
+  border-color: black;
+  border-width: 50px;
+  box-shadow: 10px 5px 5px gold;
+}
+/* efect 2 */
+.effect-2:hover,
+.effect-2:focus-visible{
+  transform: scale(0.7);
+  border-color: var(--triadic-color);
+  border-width: 5px;
+}
+/* effect 3 */
+.effect-3:hover,
+ .effect-3:focus-visible{
+  transform: scale(1.2);
+  border-color: var(--triadic-color);
+  border-width: 5px;
+}
+
+/* effect 4 */
+.effect-4:hover,
+ .effect-4:focus-visible{
+  transform: scaleX(1.2) scaleY(0.5) rotate(360deg);
+}
+/* effect 5 */
+.effect-5:hover,
+ .effect-5:focus-visible{
+  border-color:  var(--triadic-color);
+  border-width: 5px;
+  transform: translateY(-10px);
+  box-shadow: 5px 5px teal;
+}
+
+/* effect 6 */
+.effect-6:hover,
+ .effect-6:focus-visible{
+  transform: border-radius: 8000px;
+  border-color: var(--primary-color);
+  transform: scale(1.05);
 }
 
 /* YOUR CODE: Lab 4, six effects */
